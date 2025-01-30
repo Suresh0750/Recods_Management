@@ -16,6 +16,7 @@ export const useRecords = () => {
     localStorage.setItem("records", JSON.stringify(records))
   }, [records])
 
+  // * add recods 
   const addRecords = (newRecords: Record[]) => {
     setRecords((prevRecords) => {
       const uniqueRecords = [...prevRecords]
@@ -32,15 +33,22 @@ export const useRecords = () => {
     })
   }
 
+  // * Update Record
   const updateRecord = (id: string, updatedRecord: Partial<Record>) => {
     setRecords((prevRecords) =>
       prevRecords.map((record) => (record.id === id ? { ...record, ...updatedRecord } : record)),
     )
   }
 
+  // * delete record
   const deleteRecord = (id: string) => {
     setRecords((prevRecords) => prevRecords.filter((record) => record.id !== id))
   }
 
-  return { records, addRecords, updateRecord, deleteRecord }
+  // * check the exist email for update data
+  const existRecord = (email:string)=>{
+        return records.find((record:Record)=>record?.email===email)
+  }
+
+  return { records, addRecords, updateRecord, deleteRecord,existRecord }
 }

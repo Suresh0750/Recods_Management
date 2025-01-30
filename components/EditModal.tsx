@@ -2,6 +2,8 @@ import type React from "react"
 import { useState } from "react"
 import type {Record} from '@/types/Record'
 import {isValidEmail, isValidName} from '@/utils/validate'
+import {useRecords} from '@/hooks/useRecords'
+
 interface EditModalProps {
   record: Record
   onSave: (updatedRecord: Record) => void
@@ -13,16 +15,23 @@ const EditModal: React.FC<EditModalProps> = ({ record, onSave, onClose }) => {
   const [email, setEmail] = useState(record.email)
   const [error, setError] = useState("")
 
+  const {existRecord} = useRecords()
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    if (!isValidEmail(name) || !isValidName(email) ) {
+    if (!email.trim() || !isValidName(name) ) { 
       setError("Name and email are required")
       return
     }
-    if (!/\S+@\S+\.\S+/.test(email)) {
+    if (!isValidEmail(email)) {
       setError("Invalid email format")
       return
     }
+
+    const isExist = existRecord(email) // * check the exist email
+
+    if(isExist && email!=record.email) return setError("Email is Already Exist")
+
     onSave({ ...record, name, email })
   }
 
