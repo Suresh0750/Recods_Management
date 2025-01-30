@@ -2,6 +2,9 @@ import { useState, useEffect } from "react"
 import type {Record} from '@/types/Record'
 import { isValidator } from "@/utils/validate"
 
+
+// * Custom Hook 
+
 export const useRecords = () => {
   const [records, setRecords] = useState<Record[]>([])
 

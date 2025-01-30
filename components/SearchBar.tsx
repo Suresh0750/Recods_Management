@@ -4,6 +4,8 @@ interface SearchBarProps {
   onSearch: (term: string) => void
 }
 
+// * serch component
+
 const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
   return (
     <div className="mb-8">
