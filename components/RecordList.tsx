@@ -33,7 +33,7 @@ const RecordList: React.FC<RecordListProps> = ({ records, onUpdate, onDelete }) 
 
   const handleDelete = (id: string) => {
     toast(
-      (t: any) => (
+      (t:{id:string}) => (
         <div className="flex flex-col items-center gap-2">
           <p className="text-lg font-medium">Are you sure you want to delete?</p>
           <div className="flex gap-3">

@@ -26,8 +26,12 @@ const FileUpload: React.FC<FileUploadProps> = ({ onUpload }) => {
           } else {
             toast.error("Invalid JSON format")
           }
-        } catch (error) {
-          toast.error("Error parsing JSON file")
+        } catch (error:unknown) {
+          if (error instanceof SyntaxError) {
+            toast.error("Invalid JSON file format")
+          } else {
+            toast.error("An unexpected error occurred")
+          }
         }
       }
       reader.readAsText(file)
