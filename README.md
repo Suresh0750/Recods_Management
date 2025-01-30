@@ -34,3 +34,32 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+
+
+
+
+# Client Records Management Application
+
+This is a Next.js application for managing client records. It allows users to upload JSON files containing client information, display and search through records, and perform CRUD operations on the records.
+
+## Features
+
+- Upload JSON files with client records
+- Automatic removal of duplicate email addresses
+- Display records with pagination
+- Search functionality for records
+- Edit and delete individual records
+- Responsive design
+
+## Prerequisites
+
+- Node.js (version 14 or later)
+- npm or yarn
+
+## Getting Started
+
+1. Clone the repository:
+
+
