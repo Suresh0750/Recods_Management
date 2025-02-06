@@ -76,8 +76,8 @@ const RecordList: React.FC<RecordListProps> = ({ records, onUpdate, onDelete }) 
           </tr>
         </thead>
         <tbody>
-          {currentRecords.map((record) => (
-            <tr key={record.id} className="border-b hover:bg-gray-100">
+          {currentRecords.map((record,ind) => (
+            <tr key={ind} className="border-b hover:bg-gray-100">
               <td className="px-4 py-2">{record.id}</td>
               <td className="px-4 py-2">{record.name}</td>
               <td className="px-4 py-2">{record.email}</td>
@@ -89,7 +89,7 @@ const RecordList: React.FC<RecordListProps> = ({ records, onUpdate, onDelete }) 
                   Edit
                 </button>
                 <button
-                  onClick={() => handleDelete(record.id)}
+                  onClick={() => handleDelete(record.email)}
                   className="bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-2 rounded transition duration-300"
                 >
                   Delete
@@ -105,7 +105,7 @@ const RecordList: React.FC<RecordListProps> = ({ records, onUpdate, onDelete }) 
         onPageChange={setCurrentPage}
       />
       {editingRecord && (
-        <EditModal record={editingRecord} onSave={handleUpdate} onClose={() => setEditingRecord(null)} />
+        <EditModal record={editingRecord} onSave={handleUpdate} onClose={() => setEditingRecord(null)}  records ={records}/>
       )}
     </div>
   )

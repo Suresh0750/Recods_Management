@@ -65,4 +65,5 @@ This is a Next.js application for managing client records. It allows users to up
 3. npm install ('instatll the node module')
 4. npm run dev (command for runing the application)
 5. npm run build (command for build the application)
+6. npm start
 

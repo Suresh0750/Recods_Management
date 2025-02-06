@@ -8,9 +8,10 @@ interface EditModalProps {
   record: Record
   onSave: (updatedRecord: Record) => void
   onClose: () => void
+  records : Record[]
 }
 
-const EditModal: React.FC<EditModalProps> = ({ record, onSave, onClose }) => {
+const EditModal: React.FC<EditModalProps> = ({ record, onSave, onClose,records }) => {
   const [name, setName] = useState(record.name)
   const [email, setEmail] = useState(record.email)
   const [error, setError] = useState("")
@@ -28,7 +29,7 @@ const EditModal: React.FC<EditModalProps> = ({ record, onSave, onClose }) => {
       return
     }
 
-    const isExist = existRecord(email) // * check the exist email
+    const isExist = existRecord(email,records) // * check the exist email
 
     if(isExist && email!=record.email) return setError("Email is Already Exist")
 

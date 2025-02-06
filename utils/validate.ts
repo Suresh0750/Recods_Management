@@ -10,4 +10,3 @@ export const isValidName = (name:string)=>(name).trim().length>0
 
 
 export const isValidator = ({email,name,id}:validateTyeps)=> isValidEmail(email)&&isValidID(id)&&isValidName(name)
-

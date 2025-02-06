@@ -3,5 +3,5 @@ export interface Record {
   name: string
   email: string
 }
-
+ 
 export type validateTyeps = Record
