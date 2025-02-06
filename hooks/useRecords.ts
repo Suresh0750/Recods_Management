@@ -57,8 +57,7 @@ export const useRecords = () => {
 
   // * check the exist email for update data
   const existRecord = (email:string,records:Record[])=>{
-    console.log(email)
-    console.log(records)
+
     return records.find((record:Record)=>record?.email===(email)?.trim())
   }
 
