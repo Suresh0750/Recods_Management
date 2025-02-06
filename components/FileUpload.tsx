@@ -19,7 +19,7 @@ const FileUpload: React.FC<FileUploadProps> = ({ onUpload }) => {
       reader.onload = (e) => {
         try {
           const json = JSON.parse(e.target?.result as string)
-          if (Array.isArray(json)) {
+          if (Array.isArray(json) && file?.type=="application/json") {
             const uniqueRecords = removeDuplicates(json)
             onUpload(uniqueRecords)
             toast.success("File uploaded successfully")
